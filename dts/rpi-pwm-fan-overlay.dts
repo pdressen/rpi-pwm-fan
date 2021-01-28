@@ -10,13 +10,15 @@
 	fragment@0 {
 		target-path = "/";
 		__overlay__ {
-			fan0: rpi-pwm-fan@0 {
+			fan0: pwm-fan@0 {
 				compatible = "pwm-fan";
 				cooling-min-state = <0>;
 				cooling-max-state = <4>;
 				#cooling-cells = <2>;
 				cooling-levels = <0 31 63 150 255>;
-				pwms = <&pwm 0 25000 0>;
+				pwms = <&pwm 0 40000 0>;
+				interrupt-parent = <&gpio>;
+				interrupts = <23 1>;
 				status = "okay";
 			};
 		};
